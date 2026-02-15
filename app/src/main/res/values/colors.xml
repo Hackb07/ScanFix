@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dark Theme Backgrounds -->
+    <color name="background_dark">#121212</color>
+    <color name="surface_dark">#1E1E1E</color>
+    <color name="surface_card">#2C2C2C</color>
+    
+    <!-- Accent Colors -->
+    <color name="accent_mint">#69F0AE</color> 
+    <color name="accent_purple">#B39DDB</color>
+    <color name="accent_blue">#448AFF</color>
+    <color name="accent_red">#FF5252</color>
+    <color name="accent_orange">#FFAB40</color>
+    <color name="accent_green">#4CAF50</color>
+    
+    <!-- Button Color -->
+    <color name="button_mint">#64FFDA</color>
+    
+    <!-- Text Colors -->
+    <color name="text_white">#FFFFFF</color>
+    <color name="text_grey">#B0B0B0</color>
+    
+    <!-- Status Colors -->
+    <color name="status_perfect">#43A047</color>
+    <color name="status_defect">#D32F2F</color>
+    
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="transparent">#00000000</color>
+    <color name="semi_transparent_black">#80000000</color>
+    
+    <color name="primary_color">@color/accent_mint</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">@color/accent_mint</color>
+    <color name="purple_700">@color/accent_mint</color>
+    <color name="teal_200">@color/accent_mint</color>
+    <color name="teal_700">@color/accent_mint</color>
+</resources>

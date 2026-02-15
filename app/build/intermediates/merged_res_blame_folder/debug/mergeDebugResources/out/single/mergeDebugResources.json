@@ -1,0 +1,54 @@
+[
+    {
+        "merged": "com.example.tfliteapp-debug-51:/drawable_bg_status_badge.xml.flat",
+        "source": "com.example.tfliteapp-main-53:/drawable/bg_status_badge.xml"
+    },
+    {
+        "merged": "com.example.tfliteapp-debug-51:/xml_backup_rules.xml.flat",
+        "source": "com.example.tfliteapp-main-53:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "com.example.tfliteapp-debug-51:/color_nav_text_color.xml.flat",
+        "source": "com.example.tfliteapp-main-53:/color/nav_text_color.xml"
+    },
+    {
+        "merged": "com.example.tfliteapp-debug-51:/menu_bottom_nav_menu.xml.flat",
+        "source": "com.example.tfliteapp-main-53:/menu/bottom_nav_menu.xml"
+    },
+    {
+        "merged": "com.example.tfliteapp-debug-51:/xml_data_extraction_rules.xml.flat",
+        "source": "com.example.tfliteapp-main-53:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "com.example.tfliteapp-debug-51:/drawable_ic_dashboard.xml.flat",
+        "source": "com.example.tfliteapp-main-53:/drawable/ic_dashboard.xml"
+    },
+    {
+        "merged": "com.example.tfliteapp-debug-51:/layout_fragment_dashboard.xml.flat",
+        "source": "com.example.tfliteapp-main-53:/layout/fragment_dashboard.xml"
+    },
+    {
+        "merged": "com.example.tfliteapp-debug-51:/layout_fragment_scan.xml.flat",
+        "source": "com.example.tfliteapp-main-53:/layout/fragment_scan.xml"
+    },
+    {
+        "merged": "com.example.tfliteapp-debug-51:/layout_fragment_settings.xml.flat",
+        "source": "com.example.tfliteapp-main-53:/layout/fragment_settings.xml"
+    },
+    {
+        "merged": "com.example.tfliteapp-debug-51:/color_nav_icon_color.xml.flat",
+        "source": "com.example.tfliteapp-main-53:/color/nav_icon_color.xml"
+    },
+    {
+        "merged": "com.example.tfliteapp-debug-51:/drawable_ic_settings.xml.flat",
+        "source": "com.example.tfliteapp-main-53:/drawable/ic_settings.xml"
+    },
+    {
+        "merged": "com.example.tfliteapp-debug-51:/layout_activity_main.xml.flat",
+        "source": "com.example.tfliteapp-main-53:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.tfliteapp-debug-51:/drawable_ic_scan.xml.flat",
+        "source": "com.example.tfliteapp-main-53:/drawable/ic_scan.xml"
+    }
+]

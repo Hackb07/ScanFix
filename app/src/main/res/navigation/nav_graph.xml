@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/scanFragment">
+
+    <fragment
+        android:id="@+id/scanFragment"
+        android:name="com.example.tfliteapp.fragments.ScanFragment"
+        android:label="Scan"
+        android:layout="@layout/fragment_scan" />
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.example.tfliteapp.fragments.DashboardFragment"
+        android:label="Dashboard"
+        android:layout="@layout/fragment_dashboard" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.tfliteapp.fragments.SettingsFragment"
+        android:label="Settings"
+        android:layout="@layout/fragment_settings" />
+</navigation>
