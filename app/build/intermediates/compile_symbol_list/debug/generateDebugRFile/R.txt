@@ -54,7 +54,6 @@ int id status_badge 0x0
 int id target_class_input 0x0
 int id threshold_label 0x0
 int id threshold_seekbar 0x0
-int id top_class_text 0x0
 int id total_detections_text 0x0
 int id upload_model_button 0x0
 int id viewFinder 0x0

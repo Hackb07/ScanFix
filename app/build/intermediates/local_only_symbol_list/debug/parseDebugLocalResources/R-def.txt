@@ -56,7 +56,6 @@ id status_badge
 id target_class_input
 id threshold_label
 id threshold_seekbar
-id top_class_text
 id total_detections_text
 id upload_model_button
 id viewFinder

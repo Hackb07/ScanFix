@@ -4250,7 +4250,6 @@ int id toggle 0x7f0801fe
 int id top 0x7f0801ff
 int id topPanel 0x7f080200
 int id top_center 0x7f080201
-int id top_class_text 0x7f080202
 int id total_detections_text 0x7f080203
 int id touch_outside 0x7f080204
 int id transitionToEnd 0x7f080205

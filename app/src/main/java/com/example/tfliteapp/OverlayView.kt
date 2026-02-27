@@ -19,8 +19,6 @@ class OverlayView(context: Context?, attrs: AttributeSet?) : View(context, attrs
     private var boxPaint = Paint()
     private var textBackgroundPaint = Paint()
     private var textPaint = Paint()
-    private var dimBackgroundPaint = Paint()
-    private var scanAreaPaint = Paint()
 
     private var scaleFactor: Float = 1f
     private var bounds = Rect()
@@ -53,58 +51,10 @@ class OverlayView(context: Context?, attrs: AttributeSet?) : View(context, attrs
         boxPaint.color = ContextCompat.getColor(context!!, R.color.accent_mint)
         boxPaint.strokeWidth = 4F
         boxPaint.style = Paint.Style.STROKE
-        
-        dimBackgroundPaint.color = Color.parseColor("#99000000") // 60% black
-        dimBackgroundPaint.style = Paint.Style.FILL
-        
-        scanAreaPaint.color = Color.WHITE
-        scanAreaPaint.strokeWidth = 6F
-        scanAreaPaint.style = Paint.Style.STROKE
-    }
-
-    // Define the scanning area as a percentage of the screen
-    fun getScanAreaRect(): RectF {
-        val cx = width / 2f
-        val cy = height / 2f
-        
-        val boxWidth = width * 0.7f
-        val boxHeight = width * 0.7f // Make it a square for now
-        
-        return RectF(
-            cx - boxWidth / 2f,
-            cy - boxHeight / 2f,
-            cx + boxWidth / 2f,
-            cy + boxHeight / 2f
-        )
-    }
-
-    // Return the scan area mapped to image coordinates so the Detector can filter
-    fun getScanAreaInImageCoordinates(): Rect {
-        val scanRect = getScanAreaRect()
-        if (scaleFactor == 0f) return Rect()
-
-        return Rect(
-            (scanRect.left / scaleFactor).toInt(),
-            (scanRect.top / scaleFactor).toInt(),
-            (scanRect.right / scaleFactor).toInt(),
-            (scanRect.bottom / scaleFactor).toInt()
-        )
     }
 
     override fun draw(canvas: Canvas) {
         super.draw(canvas)
-        
-        // Draw the scanning region
-        val scanRect = getScanAreaRect()
-        
-        // Draw dimmed background (4 rectangles around the central hole)
-        canvas.drawRect(0f, 0f, width.toFloat(), scanRect.top, dimBackgroundPaint) // Top
-        canvas.drawRect(0f, scanRect.bottom, width.toFloat(), height.toFloat(), dimBackgroundPaint) // Bottom
-        canvas.drawRect(0f, scanRect.top, scanRect.left, scanRect.bottom, dimBackgroundPaint) // Left
-        canvas.drawRect(scanRect.right, scanRect.top, width.toFloat(), scanRect.bottom, dimBackgroundPaint) // Right
-        
-        // Draw scanner border
-        canvas.drawRect(scanRect, scanAreaPaint)
 
         for (result in results) {
             val boundingBox = result.boundingBox
@@ -186,5 +136,34 @@ class OverlayView(context: Context?, attrs: AttributeSet?) : View(context, attrs
         scaleFactor = max(width * 1f / imageWidth, height * 1f / imageHeight)
 
         invalidate()
+    }
+
+    // Define the scanning area as a percentage of the screen
+    fun getScanAreaRect(): RectF {
+        val cx = width / 2f
+        val cy = height / 2f
+        
+        val boxWidth = width * 0.7f
+        val boxHeight = width * 0.7f // Make it a square for now
+        
+        return RectF(
+            cx - boxWidth / 2f,
+            cy - boxHeight / 2f,
+            cx + boxWidth / 2f,
+            cy + boxHeight / 2f
+        )
+    }
+
+    // Return the scan area mapped to image coordinates so the Detector can filter
+    fun getScanAreaInImageCoordinates(): Rect {
+        val scanRect = getScanAreaRect()
+        if (scaleFactor == 0f) return Rect()
+
+        return Rect(
+            (scanRect.left / scaleFactor).toInt(),
+            (scanRect.top / scaleFactor).toInt(),
+            (scanRect.right / scaleFactor).toInt(),
+            (scanRect.bottom / scaleFactor).toInt()
+        )
     }
 }

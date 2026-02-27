@@ -203,30 +203,15 @@ class ScanFragment : Fragment(), DetectorListener {
     ) {
         val safeResults = results ?: mutableListOf()
         
-        // Only accept detections that intersect with the scan area
-        val scanArea = overlay.getScanAreaInImageCoordinates()
-        val filteredResults = mutableListOf<Detection>()
-        
-        for (detection in safeResults) {
-            val box = detection.boundingBox
-            // Check if the center of the bounding box is inside the scan area
-            val cx = box.centerX()
-            val cy = box.centerY()
-            
-            if (scanArea.contains(cx.toInt(), cy.toInt())) {
-                filteredResults.add(detection)
-            }
-        }
-        
-        if (filteredResults.isNotEmpty()) {
-             sharedViewModel.updateDetectionStats(filteredResults)
+        if (safeResults.isNotEmpty()) {
+             sharedViewModel.updateDetectionStats(safeResults)
              
              // Check if we should beep for this specific target class
              val targetClass = sharedViewModel.targetClass.value ?: ""
              val shouldBeep = if (targetClass.isEmpty()) {
                  true
              } else {
-                 filteredResults.any { 
+                 safeResults.any { 
                      val label = it.categories.firstOrNull()?.label ?: ""
                      label.equals(targetClass, ignoreCase = true)
                  }
@@ -244,7 +229,7 @@ class ScanFragment : Fragment(), DetectorListener {
         
         activity?.runOnUiThread {
             overlay.setResults(
-                filteredResults,
+                safeResults,
                 imageHeight,
                 imageWidth
             )

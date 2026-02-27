@@ -49,9 +49,6 @@ public final class FragmentDashboardBinding implements ViewBinding {
   public final RadioButton radioPieChart;
 
   @NonNull
-  public final TextView topClassText;
-
-  @NonNull
   public final TextView totalDetectionsText;
 
   private FragmentDashboardBinding(@NonNull LinearLayout rootView,
@@ -59,7 +56,7 @@ public final class FragmentDashboardBinding implements ViewBinding {
       @NonNull LinearLayout classCountListContainer, @NonNull BarChart classDistributionChart,
       @NonNull PieChart classDistributionPieChart, @NonNull Spinner filterSpinner,
       @NonNull RadioButton radioBarChart, @NonNull RadioButton radioPieChart,
-      @NonNull TextView topClassText, @NonNull TextView totalDetectionsText) {
+      @NonNull TextView totalDetectionsText) {
     this.rootView = rootView;
     this.avgConfidenceText = avgConfidenceText;
     this.chartTypeGroup = chartTypeGroup;
@@ -69,7 +66,6 @@ public final class FragmentDashboardBinding implements ViewBinding {
     this.filterSpinner = filterSpinner;
     this.radioBarChart = radioBarChart;
     this.radioPieChart = radioPieChart;
-    this.topClassText = topClassText;
     this.totalDetectionsText = totalDetectionsText;
   }
 
@@ -148,12 +144,6 @@ public final class FragmentDashboardBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.top_class_text;
-      TextView topClassText = ViewBindings.findChildViewById(rootView, id);
-      if (topClassText == null) {
-        break missingId;
-      }
-
       id = R.id.total_detections_text;
       TextView totalDetectionsText = ViewBindings.findChildViewById(rootView, id);
       if (totalDetectionsText == null) {
@@ -162,7 +152,7 @@ public final class FragmentDashboardBinding implements ViewBinding {
 
       return new FragmentDashboardBinding((LinearLayout) rootView, avgConfidenceText,
           chartTypeGroup, classCountListContainer, classDistributionChart,
-          classDistributionPieChart, filterSpinner, radioBarChart, radioPieChart, topClassText,
+          classDistributionPieChart, filterSpinner, radioBarChart, radioPieChart,
           totalDetectionsText);
     }
     String missingId = rootView.getResources().getResourceName(id);
