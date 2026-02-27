@@ -4,14 +4,14 @@
             "outputFile": "com.example.tfliteapp.test.app-mergeDebugAndroidTestResources-2:/values/values.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Hackb07\\.gradle\\caches\\9.1.0\\transforms\\2959a6ebff24c866fa837c5cca3a7090\\workspace\\transformed\\jetified-core-1.5.0\\res\\values\\values.xml",
+                    "source": "C:\\Users\\Tharu\\.gradle\\caches\\9.1.0\\transforms\\4fa9cab4b967194a7071bd4957fc3d59\\workspace\\transformed\\jetified-core-1.7.0\\res\\values\\values.xml",
                     "from": {
                         "startLines": "4,11",
                         "startColumns": "0,0",
-                        "startOffsets": "176,544",
+                        "startOffsets": "142,510",
                         "endLines": "10,17",
                         "endColumns": "8,8",
-                        "endOffsets": "543,909"
+                        "endOffsets": "509,875"
                     },
                     "to": {
                         "startLines": "2,9",
