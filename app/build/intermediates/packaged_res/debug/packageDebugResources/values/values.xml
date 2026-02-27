@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="http://schemas.android.com/tools">
+    <string-array name="filter_options">
+        <item>Top 5</item>
+        <item>Top 10</item>
+        <item>All Classes</item>
+    </string-array>
     <color name="accent_blue">#448AFF</color>
     <color name="accent_green">#4CAF50</color>
     <color name="accent_mint">#69F0AE</color>
@@ -24,8 +29,8 @@
     <color name="text_white">#FFFFFF</color>
     <color name="transparent">#00000000</color>
     <color name="white">#FFFFFF</color>
-    <string name="app_name">TFLite Object Detection</string>
-    <style name="Theme.TFLiteApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <string name="app_name">ScanFix</string>
+    <style name="Theme.TFLiteApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>

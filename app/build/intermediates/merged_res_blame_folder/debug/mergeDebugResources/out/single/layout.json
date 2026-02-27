@@ -1,18 +1,22 @@
 [
     {
-        "merged": "com.example.tfliteapp-mergeDebugResources-50:/layout/fragment_dashboard.xml",
-        "source": "com.example.tfliteapp-main-53:/layout/fragment_dashboard.xml"
+        "merged": "com.example.tfliteapp-mergeDebugResources-55:/layout/fragment_dashboard.xml",
+        "source": "com.example.tfliteapp-main-58:/layout/fragment_dashboard.xml"
     },
     {
-        "merged": "com.example.tfliteapp-mergeDebugResources-50:/layout/fragment_scan.xml",
-        "source": "com.example.tfliteapp-main-53:/layout/fragment_scan.xml"
+        "merged": "C:\\Users\\Tharu\\.gradle\\daemon\\9.1.0\\com.example.tfliteapp-mergeDebugResources-55:\\layout\\fragment_settings.xml",
+        "source": "C:\\Users\\Tharu\\.gradle\\daemon\\9.1.0\\com.example.tfliteapp-main-58:\\layout\\fragment_settings.xml"
     },
     {
-        "merged": "com.example.tfliteapp-mergeDebugResources-50:/layout/fragment_settings.xml",
-        "source": "com.example.tfliteapp-main-53:/layout/fragment_settings.xml"
+        "merged": "C:\\Users\\Tharu\\.gradle\\daemon\\9.1.0\\com.example.tfliteapp-mergeDebugResources-55:\\layout\\fragment_dashboard.xml",
+        "source": "C:\\Users\\Tharu\\.gradle\\daemon\\9.1.0\\com.example.tfliteapp-main-58:\\layout\\fragment_dashboard.xml"
     },
     {
-        "merged": "com.example.tfliteapp-mergeDebugResources-50:/layout/activity_main.xml",
-        "source": "com.example.tfliteapp-main-53:/layout/activity_main.xml"
+        "merged": "C:\\Users\\Tharu\\.gradle\\daemon\\9.1.0\\com.example.tfliteapp-mergeDebugResources-55:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\Tharu\\.gradle\\daemon\\9.1.0\\com.example.tfliteapp-main-58:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Tharu\\.gradle\\daemon\\9.1.0\\com.example.tfliteapp-mergeDebugResources-55:\\layout\\fragment_scan.xml",
+        "source": "C:\\Users\\Tharu\\.gradle\\daemon\\9.1.0\\com.example.tfliteapp-main-58:\\layout\\fragment_scan.xml"
     }
 ]

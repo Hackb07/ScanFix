@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.tfliteapp-mergeDebugResources-49:/values-en-rCA/values-en-rCA.xml",
+            "outputFile": "com.example.tfliteapp-mergeDebugResources-54:/values-en-rCA/values-en-rCA.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\balat\\.gradle\\caches\\9.1.0\\transforms\\8450dc94368516403eea263e90334609\\workspace\\transformed\\core-1.12.0\\res\\values-en-rCA\\values-en-rCA.xml",
+                    "source": "C:\\Users\\Tharu\\.gradle\\caches\\9.1.0\\transforms\\9988e10d5f0e7640430267e227109ed8\\workspace\\transformed\\core-1.17.0\\res\\values-en-rCA\\values-en-rCA.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\balat\\.gradle\\caches\\9.1.0\\transforms\\cc17774ba84d153d28e5c6f086486cf4\\workspace\\transformed\\appcompat-1.6.1\\res\\values-en-rCA\\values-en-rCA.xml",
+                    "source": "C:\\Users\\Tharu\\.gradle\\caches\\9.1.0\\transforms\\2a4a839e9eb8caf5f4c4401a05f98fe1\\workspace\\transformed\\appcompat-1.7.1\\res\\values-en-rCA\\values-en-rCA.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

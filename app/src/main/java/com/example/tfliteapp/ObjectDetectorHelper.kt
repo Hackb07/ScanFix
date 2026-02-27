@@ -2,6 +2,7 @@ package com.example.tfliteapp
 
 import android.content.Context
 import android.graphics.Bitmap
+import android.net.Uri
 import android.os.SystemClock
 import android.util.Log
 import org.tensorflow.lite.support.image.ImageProcessor
@@ -9,6 +10,8 @@ import org.tensorflow.lite.support.image.TensorImage
 import org.tensorflow.lite.task.core.BaseOptions
 import org.tensorflow.lite.task.vision.detector.Detection
 import org.tensorflow.lite.task.vision.detector.ObjectDetector
+import java.io.File
+import java.io.FileOutputStream
 
 class ObjectDetectorHelper(
     var threshold: Float = 0.5f,
@@ -17,11 +20,10 @@ class ObjectDetectorHelper(
     var currentDelegate: Int = 0,
     var currentModel: Int = 0,
     val context: Context,
-    val objectDetectorListener: DetectorListener?
+    val objectDetectorListener: DetectorListener?,
+    var modelUri: Uri? = null
 ) {
 
-    // For this example this needs to be a var so it can be reset on changes.
-    // If the helper is just being used to call detect, correct.
     private var objectDetector: ObjectDetector? = null
 
     init {
@@ -33,27 +35,60 @@ class ObjectDetectorHelper(
     }
 
     fun setupObjectDetector() {
-        // Create the base options for the detector using specifies max results and score threshold
         val optionsBuilder =
             ObjectDetector.ObjectDetectorOptions.builder()
                 .setScoreThreshold(threshold)
                 .setMaxResults(maxResults)
 
-        // Set general detection options, including number of used threads
         val baseOptionsBuilder = BaseOptions.builder().setNumThreads(numThreads)
-
         optionsBuilder.setBaseOptions(baseOptionsBuilder.build())
 
-        val modelName = "mobilenet_v1_1_0_224_quant.tflite"
-
         try {
-            objectDetector =
-                ObjectDetector.createFromFileAndOptions(context, modelName, optionsBuilder.build())
-        } catch (e: IllegalStateException) {
+            if (modelUri != null) {
+                // Load model from user-selected file URI
+                val modelFile = copyUriToLocalFile(modelUri!!)
+                if (modelFile != null) {
+                    // Use the file path string with Context overload
+                    objectDetector =
+                        ObjectDetector.createFromFileAndOptions(
+                            context,
+                            modelFile.absolutePath,
+                            optionsBuilder.build()
+                        )
+                    Log.d("ObjectDetectorHelper", "Loaded custom model from: ${modelFile.absolutePath}")
+                } else {
+                    objectDetectorListener?.onError("Failed to load the selected model file.")
+                }
+            } else {
+                // Fallback: load bundled default model from assets
+                val modelName = "mobilenet_v1_1_0_224_quant.tflite"
+                objectDetector =
+                    ObjectDetector.createFromFileAndOptions(context, modelName, optionsBuilder.build())
+            }
+        } catch (e: Exception) {
             objectDetectorListener?.onError(
                 "Object detector failed to initialize. See error logs for details"
             )
-            Log.e("Test", "TFLite failed to load model with error: " + e.message)
+            Log.e("ObjectDetectorHelper", "TFLite failed to load model with error: " + e.message)
+        }
+    }
+
+    /**
+     * Copies the content from a URI to a local file in the app's cache directory
+     * so TFLite can read it via an absolute path.
+     */
+    private fun copyUriToLocalFile(uri: Uri): File? {
+        return try {
+            val inputStream = context.contentResolver.openInputStream(uri) ?: return null
+            val tempFile = File(context.filesDir, "custom_model.tflite")
+            FileOutputStream(tempFile).use { output ->
+                inputStream.copyTo(output)
+            }
+            inputStream.close()
+            tempFile
+        } catch (e: Exception) {
+            Log.e("ObjectDetectorHelper", "Error copying model file: ${e.message}")
+            null
         }
     }
 
@@ -62,18 +97,13 @@ class ObjectDetectorHelper(
             setupObjectDetector()
         }
 
-        // Inference time is the difference between the system time at the start and finish of the process
         var inferenceTime = SystemClock.uptimeMillis()
 
-        // Create preprocessor for the image.
         val imageProcessor =
             ImageProcessor.Builder()
-                // .add(Rot90Op(-imageRotation / 90)) // Optional: if needed to rotate
                 .build()
 
-        // Preprocess the image and convert it into a TensorImage for detection.
         val tensorImage = TensorImage.fromBitmap(image)
-
         val processedImage = imageProcessor.process(tensorImage)
 
         val results = objectDetector?.detect(processedImage)

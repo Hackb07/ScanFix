@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.tfliteapp-mergeDebugResources-49:/values-h480dp-land-v13/values-h480dp-land-v13.xml",
+            "outputFile": "com.example.tfliteapp-mergeDebugResources-54:/values-h480dp-land-v13/values-h480dp-land-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\balat\\.gradle\\caches\\9.1.0\\transforms\\d33f4309ccfa5bf49e8cbe5b8ed4a99a\\workspace\\transformed\\material-1.11.0\\res\\values-h480dp-land-v13\\values-h480dp-land-v13.xml",
+                    "source": "C:\\Users\\Tharu\\.gradle\\caches\\9.1.0\\transforms\\719af7182283b322f53bd077f51d107f\\workspace\\transformed\\material-1.13.0\\res\\values-h480dp-land-v13\\values-h480dp-land-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10",
                         "startColumns": "4,4,4,4,4,4,4,4,4",

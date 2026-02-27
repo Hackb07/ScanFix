@@ -4,7 +4,9 @@ package com.example.tfliteapp.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AutoCompleteTextView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -12,13 +14,29 @@ import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.tfliteapp.R;
+import com.google.android.material.button.MaterialButton;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
 
 public final class FragmentSettingsBinding implements ViewBinding {
   @NonNull
-  private final LinearLayout rootView;
+  private final ScrollView rootView;
+
+  @NonNull
+  public final LinearLayout clearDatabaseBtn;
+
+  @NonNull
+  public final LinearLayout exportDataBtn;
+
+  @NonNull
+  public final TextView modelNameText;
+
+  @NonNull
+  public final MaterialButton removeModelButton;
+
+  @NonNull
+  public final AutoCompleteTextView targetClassInput;
 
   @NonNull
   public final TextView thresholdLabel;
@@ -26,16 +44,28 @@ public final class FragmentSettingsBinding implements ViewBinding {
   @NonNull
   public final SeekBar thresholdSeekbar;
 
-  private FragmentSettingsBinding(@NonNull LinearLayout rootView, @NonNull TextView thresholdLabel,
-      @NonNull SeekBar thresholdSeekbar) {
+  @NonNull
+  public final MaterialButton uploadModelButton;
+
+  private FragmentSettingsBinding(@NonNull ScrollView rootView,
+      @NonNull LinearLayout clearDatabaseBtn, @NonNull LinearLayout exportDataBtn,
+      @NonNull TextView modelNameText, @NonNull MaterialButton removeModelButton,
+      @NonNull AutoCompleteTextView targetClassInput, @NonNull TextView thresholdLabel,
+      @NonNull SeekBar thresholdSeekbar, @NonNull MaterialButton uploadModelButton) {
     this.rootView = rootView;
+    this.clearDatabaseBtn = clearDatabaseBtn;
+    this.exportDataBtn = exportDataBtn;
+    this.modelNameText = modelNameText;
+    this.removeModelButton = removeModelButton;
+    this.targetClassInput = targetClassInput;
     this.thresholdLabel = thresholdLabel;
     this.thresholdSeekbar = thresholdSeekbar;
+    this.uploadModelButton = uploadModelButton;
   }
 
   @Override
   @NonNull
-  public LinearLayout getRoot() {
+  public ScrollView getRoot() {
     return rootView;
   }
 
@@ -60,6 +90,36 @@ public final class FragmentSettingsBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.clear_database_btn;
+      LinearLayout clearDatabaseBtn = ViewBindings.findChildViewById(rootView, id);
+      if (clearDatabaseBtn == null) {
+        break missingId;
+      }
+
+      id = R.id.export_data_btn;
+      LinearLayout exportDataBtn = ViewBindings.findChildViewById(rootView, id);
+      if (exportDataBtn == null) {
+        break missingId;
+      }
+
+      id = R.id.model_name_text;
+      TextView modelNameText = ViewBindings.findChildViewById(rootView, id);
+      if (modelNameText == null) {
+        break missingId;
+      }
+
+      id = R.id.remove_model_button;
+      MaterialButton removeModelButton = ViewBindings.findChildViewById(rootView, id);
+      if (removeModelButton == null) {
+        break missingId;
+      }
+
+      id = R.id.target_class_input;
+      AutoCompleteTextView targetClassInput = ViewBindings.findChildViewById(rootView, id);
+      if (targetClassInput == null) {
+        break missingId;
+      }
+
       id = R.id.threshold_label;
       TextView thresholdLabel = ViewBindings.findChildViewById(rootView, id);
       if (thresholdLabel == null) {
@@ -72,7 +132,15 @@ public final class FragmentSettingsBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentSettingsBinding((LinearLayout) rootView, thresholdLabel, thresholdSeekbar);
+      id = R.id.upload_model_button;
+      MaterialButton uploadModelButton = ViewBindings.findChildViewById(rootView, id);
+      if (uploadModelButton == null) {
+        break missingId;
+      }
+
+      return new FragmentSettingsBinding((ScrollView) rootView, clearDatabaseBtn, exportDataBtn,
+          modelNameText, removeModelButton, targetClassInput, thresholdLabel, thresholdSeekbar,
+          uploadModelButton);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

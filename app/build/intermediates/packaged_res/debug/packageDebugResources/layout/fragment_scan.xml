@@ -18,6 +18,7 @@
         
     <!-- Top Left "Ready to Scan" Badge -->
     <TextView
+        android:id="@+id/status_badge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ready to Scan"
@@ -38,7 +39,7 @@
         android:id="@+id/detect_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Detect Objects"
+        android:text="Start Industrial Scan"
         android:textColor="@color/black"
         app:icon="@drawable/ic_scan"
         app:iconTint="@color/black"

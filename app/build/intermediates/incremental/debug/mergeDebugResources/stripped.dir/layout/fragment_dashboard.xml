@@ -11,7 +11,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Dashboard"
+        android:text="Industrial Dashboard"
         android:textSize="28sp"
         android:textStyle="bold"
         android:textColor="@color/text_white"
@@ -61,7 +61,7 @@
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Defects Card -->
+        <!-- Top Class Card -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -69,7 +69,7 @@
             android:layout_marginEnd="8dp"
             app:cardCornerRadius="12dp"
             app:cardBackgroundColor="@color/surface_card"
-            app:strokeColor="@color/accent_red"
+            app:strokeColor="@color/accent_orange"
             app:strokeWidth="1dp">
             
             <LinearLayout
@@ -80,24 +80,27 @@
                 android:padding="12dp">
                 
                 <TextView
+                    android:id="@+id/top_class_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="0"
-                    android:textSize="24sp"
+                    android:text="None"
+                    android:textSize="20sp"
                     android:textStyle="bold"
-                    android:textColor="@color/accent_red"/>
+                    android:textColor="@color/accent_orange"
+                    android:singleLine="true"
+                    android:ellipsize="end" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Defects"
+                    android:text="Top Class"
                     android:textColor="@color/text_grey"
                     android:textSize="12sp"
                     android:layout_marginTop="4dp"/>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
         
-        <!-- Perfect Card -->
+        <!-- Confidence Card -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -118,7 +121,7 @@
                     android:id="@+id/avg_confidence_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="0"
+                    android:text="0%"
                     android:textSize="24sp"
                     android:textStyle="bold"
                     android:textColor="@color/accent_green"/>
@@ -126,7 +129,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Perfect"
+                    android:text="Confidence"
                     android:textColor="@color/text_grey"
                     android:textSize="12sp"
                     android:layout_marginTop="4dp"/>
@@ -134,60 +137,102 @@
         </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
 
-    <!-- Defect Rate Card -->
-    <TextView
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:text="Defect Rate"
-         android:textColor="@color/text_white"
-         android:textSize="16sp"
-         android:textStyle="bold"
-         android:layout_marginBottom="8dp"/>
-
-    <com.google.android.material.card.MaterialCardView
+    <!-- Class Distribution Section Header & Controls -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="12dp"
-        app:cardBackgroundColor="@color/surface_card"
-        app:contentPadding="16dp"
-        android:layout_marginBottom="24dp">
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="12dp"
+        android:layout_marginTop="16dp">
         
         <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Class Distribution"
+            android:textColor="@color/text_white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/filter_spinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0.0%"
-            android:textSize="32sp"
-            android:textStyle="bold"
-            android:textColor="@color/accent_orange"/>
-    </com.google.android.material.card.MaterialCardView>
-    
-    <!-- Defect Distribution Section (Empty Placeholder) -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Defect Distribution"
-        android:textColor="@color/text_white"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="8dp"/>
-        
-    <TextView
+            android:backgroundTint="@color/text_white"
+            android:entries="@array/filter_options" />
+    </LinearLayout>
+
+    <RadioGroup
+        android:id="@+id/chart_type_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="No defect data available yet"
-        android:textColor="@color/text_grey"
-        android:gravity="center"
-        android:padding="24dp"
-        android:layout_marginBottom="24dp"/>
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp"
+        android:weightSum="2">
 
-    <!-- Hourly Activity Section (Empty Placeholder) -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hourly Activity"
-        android:textColor="@color/text_white"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="8dp"/>
+        <RadioButton
+            android:id="@+id/radio_bar_chart"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Bar Chart"
+            android:textColor="@color/text_white"
+            android:buttonTint="@color/accent_blue"
+            android:checked="true" />
+
+        <RadioButton
+            android:id="@+id/radio_pie_chart"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/text_white"
+            android:buttonTint="@color/accent_blue"
+            android:text="Pie Chart" />
+    </RadioGroup>
+        
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/class_distribution_chart"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginTop="8dp"/>
+
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/class_distribution_pie_chart"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginTop="8dp"
+                android:visibility="gone"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Detected Classes Breakdown"
+                android:textColor="@color/text_white"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="12dp"/>
+
+            <LinearLayout
+                android:id="@+id/class_count_list_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="24dp"/>
+            
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

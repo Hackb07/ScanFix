@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.tfliteapp-mergeDebugResources-49:/values-v16/values-v16.xml",
+            "outputFile": "com.example.tfliteapp-mergeDebugResources-54:/values-v16/values-v16.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\balat\\.gradle\\caches\\9.1.0\\transforms\\cc17774ba84d153d28e5c6f086486cf4\\workspace\\transformed\\appcompat-1.6.1\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\Tharu\\.gradle\\caches\\9.1.0\\transforms\\2a4a839e9eb8caf5f4c4401a05f98fe1\\workspace\\transformed\\appcompat-1.7.1\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -12,24 +12,6 @@
                         "endLines": "5",
                         "endColumns": "12",
                         "endOffsets": "223"
-                    },
-                    "to": {
-                        "startLines": "3",
-                        "startColumns": "4",
-                        "startOffsets": "121",
-                        "endLines": "6",
-                        "endColumns": "12",
-                        "endOffsets": "289"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\balat\\.gradle\\caches\\9.1.0\\transforms\\8450dc94368516403eea263e90334609\\workspace\\transformed\\core-1.12.0\\res\\values-v16\\values-v16.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "65",
-                        "endOffsets": "116"
                     }
                 }
             ]

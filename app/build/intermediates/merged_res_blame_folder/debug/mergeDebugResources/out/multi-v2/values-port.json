@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.tfliteapp-mergeDebugResources-49:/values-port/values-port.xml",
+            "outputFile": "com.example.tfliteapp-mergeDebugResources-54:/values-port/values-port.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\balat\\.gradle\\caches\\9.1.0\\transforms\\cc17774ba84d153d28e5c6f086486cf4\\workspace\\transformed\\appcompat-1.6.1\\res\\values-port\\values-port.xml",
+                    "source": "C:\\Users\\Tharu\\.gradle\\caches\\9.1.0\\transforms\\2a4a839e9eb8caf5f4c4401a05f98fe1\\workspace\\transformed\\appcompat-1.7.1\\res\\values-port\\values-port.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

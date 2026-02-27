@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/background_dark"
-    android:padding="16dp">
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
 
     <!-- Header -->
     <TextView
@@ -17,7 +22,85 @@
         android:textColor="@color/text_white"
         android:layout_marginBottom="24dp"/>
 
-    <!-- Detection Settings -->
+    <!-- ======================== -->
+    <!-- Model Upload Section     -->
+    <!-- ======================== -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TFLite Model"
+        android:textColor="@color/text_white"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_marginBottom="12dp"/>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="12dp"
+        app:cardBackgroundColor="@color/surface_card"
+        app:contentPadding="16dp"
+        android:layout_marginBottom="32dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Current model label -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Current Model"
+                android:textColor="@color/text_grey"
+                android:textSize="13sp"
+                android:layout_marginBottom="4dp"/>
+
+            <TextView
+                android:id="@+id/model_name_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Default model (MobileNet V1)"
+                android:textColor="@color/text_white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:drawablePadding="8dp"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Upload / Browse button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/upload_model_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Upload .tflite Model"
+                android:textColor="@color/black"
+                android:textAllCaps="false"
+                app:backgroundTint="@color/button_mint"
+                app:cornerRadius="12dp"
+                app:icon="@drawable/ic_scan"
+                app:iconTint="@color/black"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- Remove custom model button (hidden by default) -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/remove_model_button"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Remove &amp; Use Default"
+                android:textColor="@color/accent_red"
+                android:textAllCaps="false"
+                app:cornerRadius="12dp"
+                app:strokeColor="@color/accent_red"
+                app:strokeWidth="1dp"
+                android:visibility="gone"/>
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- ======================== -->
+    <!-- Detection Settings       -->
+    <!-- ======================== -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -55,7 +138,32 @@
                 android:max="100"
                 android:progress="50"
                 android:progressTint="@color/accent_purple"
-                android:thumbTint="@color/accent_purple"/>
+                android:thumbTint="@color/accent_purple"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Target Class (Beep only on this):"
+                android:textColor="@color/text_white"
+                android:layout_marginBottom="8dp"/>
+                
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                android:hint="Select or type class name..."
+                app:hintTextColor="@color/text_white"
+                app:boxBackgroundColor="@color/background_dark">
+
+                <AutoCompleteTextView
+                    android:id="@+id/target_class_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_white"
+                    android:inputType="text"
+                    android:maxLines="1"/>
+            </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
@@ -71,11 +179,16 @@
 
     <!-- Clear Database -->
     <LinearLayout
+        android:id="@+id/clear_database_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:layout_marginBottom="24dp">
+        android:layout_marginBottom="24dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="8dp">
         
         <ImageView
             android:layout_width="32dp"
@@ -83,7 +196,6 @@
             android:src="@drawable/ic_dashboard"
             app:tint="@color/accent_red"
             android:layout_marginEnd="16dp"/>
-            <!-- Ideally Trash icon, using dashboard placeholder tinted red -->
 
         <LinearLayout
             android:layout_width="0dp"
@@ -107,11 +219,16 @@
 
     <!-- Export Data -->
     <LinearLayout
+        android:id="@+id/export_data_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:layout_marginBottom="24dp">
+        android:layout_marginBottom="24dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="8dp">
 
         <ImageView
             android:layout_width="32dp"
@@ -119,7 +236,6 @@
             android:src="@drawable/ic_scan"
             app:tint="@color/text_white" 
             android:layout_marginEnd="16dp"/>
-            <!-- Using scan/arrow placeholder -->
 
         <LinearLayout
             android:layout_width="0dp"
@@ -155,3 +271,4 @@
         android:layout_marginBottom="16dp"/>
 
 </LinearLayout>
+</ScrollView>

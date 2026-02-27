@@ -5,12 +5,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.tfliteapp.R;
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.charts.PieChart;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -23,12 +28,48 @@ public final class FragmentDashboardBinding implements ViewBinding {
   public final TextView avgConfidenceText;
 
   @NonNull
+  public final RadioGroup chartTypeGroup;
+
+  @NonNull
+  public final LinearLayout classCountListContainer;
+
+  @NonNull
+  public final BarChart classDistributionChart;
+
+  @NonNull
+  public final PieChart classDistributionPieChart;
+
+  @NonNull
+  public final Spinner filterSpinner;
+
+  @NonNull
+  public final RadioButton radioBarChart;
+
+  @NonNull
+  public final RadioButton radioPieChart;
+
+  @NonNull
+  public final TextView topClassText;
+
+  @NonNull
   public final TextView totalDetectionsText;
 
   private FragmentDashboardBinding(@NonNull LinearLayout rootView,
-      @NonNull TextView avgConfidenceText, @NonNull TextView totalDetectionsText) {
+      @NonNull TextView avgConfidenceText, @NonNull RadioGroup chartTypeGroup,
+      @NonNull LinearLayout classCountListContainer, @NonNull BarChart classDistributionChart,
+      @NonNull PieChart classDistributionPieChart, @NonNull Spinner filterSpinner,
+      @NonNull RadioButton radioBarChart, @NonNull RadioButton radioPieChart,
+      @NonNull TextView topClassText, @NonNull TextView totalDetectionsText) {
     this.rootView = rootView;
     this.avgConfidenceText = avgConfidenceText;
+    this.chartTypeGroup = chartTypeGroup;
+    this.classCountListContainer = classCountListContainer;
+    this.classDistributionChart = classDistributionChart;
+    this.classDistributionPieChart = classDistributionPieChart;
+    this.filterSpinner = filterSpinner;
+    this.radioBarChart = radioBarChart;
+    this.radioPieChart = radioPieChart;
+    this.topClassText = topClassText;
     this.totalDetectionsText = totalDetectionsText;
   }
 
@@ -65,6 +106,54 @@ public final class FragmentDashboardBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.chart_type_group;
+      RadioGroup chartTypeGroup = ViewBindings.findChildViewById(rootView, id);
+      if (chartTypeGroup == null) {
+        break missingId;
+      }
+
+      id = R.id.class_count_list_container;
+      LinearLayout classCountListContainer = ViewBindings.findChildViewById(rootView, id);
+      if (classCountListContainer == null) {
+        break missingId;
+      }
+
+      id = R.id.class_distribution_chart;
+      BarChart classDistributionChart = ViewBindings.findChildViewById(rootView, id);
+      if (classDistributionChart == null) {
+        break missingId;
+      }
+
+      id = R.id.class_distribution_pie_chart;
+      PieChart classDistributionPieChart = ViewBindings.findChildViewById(rootView, id);
+      if (classDistributionPieChart == null) {
+        break missingId;
+      }
+
+      id = R.id.filter_spinner;
+      Spinner filterSpinner = ViewBindings.findChildViewById(rootView, id);
+      if (filterSpinner == null) {
+        break missingId;
+      }
+
+      id = R.id.radio_bar_chart;
+      RadioButton radioBarChart = ViewBindings.findChildViewById(rootView, id);
+      if (radioBarChart == null) {
+        break missingId;
+      }
+
+      id = R.id.radio_pie_chart;
+      RadioButton radioPieChart = ViewBindings.findChildViewById(rootView, id);
+      if (radioPieChart == null) {
+        break missingId;
+      }
+
+      id = R.id.top_class_text;
+      TextView topClassText = ViewBindings.findChildViewById(rootView, id);
+      if (topClassText == null) {
+        break missingId;
+      }
+
       id = R.id.total_detections_text;
       TextView totalDetectionsText = ViewBindings.findChildViewById(rootView, id);
       if (totalDetectionsText == null) {
@@ -72,6 +161,8 @@ public final class FragmentDashboardBinding implements ViewBinding {
       }
 
       return new FragmentDashboardBinding((LinearLayout) rootView, avgConfidenceText,
+          chartTypeGroup, classCountListContainer, classDistributionChart,
+          classDistributionPieChart, filterSpinner, radioBarChart, radioPieChart, topClassText,
           totalDetectionsText);
     }
     String missingId = rootView.getResources().getResourceName(id);

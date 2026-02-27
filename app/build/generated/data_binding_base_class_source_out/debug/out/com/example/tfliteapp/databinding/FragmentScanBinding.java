@@ -4,6 +4,7 @@ package com.example.tfliteapp.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.camera.view.PreviewView;
@@ -28,14 +29,18 @@ public final class FragmentScanBinding implements ViewBinding {
   public final OverlayView overlay;
 
   @NonNull
+  public final TextView statusBadge;
+
+  @NonNull
   public final PreviewView viewFinder;
 
   private FragmentScanBinding(@NonNull ConstraintLayout rootView,
       @NonNull MaterialButton detectButton, @NonNull OverlayView overlay,
-      @NonNull PreviewView viewFinder) {
+      @NonNull TextView statusBadge, @NonNull PreviewView viewFinder) {
     this.rootView = rootView;
     this.detectButton = detectButton;
     this.overlay = overlay;
+    this.statusBadge = statusBadge;
     this.viewFinder = viewFinder;
   }
 
@@ -78,6 +83,12 @@ public final class FragmentScanBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.status_badge;
+      TextView statusBadge = ViewBindings.findChildViewById(rootView, id);
+      if (statusBadge == null) {
+        break missingId;
+      }
+
       id = R.id.viewFinder;
       PreviewView viewFinder = ViewBindings.findChildViewById(rootView, id);
       if (viewFinder == null) {
@@ -85,7 +96,7 @@ public final class FragmentScanBinding implements ViewBinding {
       }
 
       return new FragmentScanBinding((ConstraintLayout) rootView, detectButton, overlay,
-          viewFinder);
+          statusBadge, viewFinder);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

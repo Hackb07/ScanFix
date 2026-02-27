@@ -2,7 +2,10 @@ package com.example.tfliteapp.fragments
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.content.res.ColorStateList
 import android.graphics.Bitmap
+import android.media.AudioManager
+import android.media.ToneGenerator
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -48,6 +51,11 @@ class ScanFragment : Fragment(), DetectorListener {
 
     private var isScanning = false
     private lateinit var detectButton: com.google.android.material.button.MaterialButton
+    private lateinit var statusBadge: android.widget.TextView
+    
+    // Audio feedback
+    private var toneGenerator: ToneGenerator? = null
+    private var lastBeepTime = 0L
     
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -57,6 +65,7 @@ class ScanFragment : Fragment(), DetectorListener {
         overlay = root.findViewById(R.id.overlay)
         viewFinder = root.findViewById(R.id.viewFinder)
         detectButton = root.findViewById(R.id.detect_button)
+        statusBadge = root.findViewById(R.id.status_badge)
         return root
     }
 
@@ -65,12 +74,23 @@ class ScanFragment : Fragment(), DetectorListener {
 
         objectDetectorHelper = ObjectDetectorHelper(
             context = requireContext(),
-            objectDetectorListener = this
+            objectDetectorListener = this,
+            modelUri = sharedViewModel.modelUri.value
         )
+
+        // Initialize ToneGenerator for max volume on the notification stream
+        toneGenerator = ToneGenerator(AudioManager.STREAM_NOTIFICATION, ToneGenerator.MAX_VOLUME)
 
         // Observe threshold changes
         sharedViewModel.threshold.observe(viewLifecycleOwner) {
             objectDetectorHelper.threshold = it
+            objectDetectorHelper.clearObjectDetector()
+            objectDetectorHelper.setupObjectDetector()
+        }
+
+        // Observe model URI changes (user uploaded a new .tflite model)
+        sharedViewModel.modelUri.observe(viewLifecycleOwner) { uri ->
+            objectDetectorHelper.modelUri = uri
             objectDetectorHelper.clearObjectDetector()
             objectDetectorHelper.setupObjectDetector()
         }
@@ -79,10 +99,16 @@ class ScanFragment : Fragment(), DetectorListener {
             isScanning = !isScanning
             if (isScanning) {
                 detectButton.text = "Stop Scanning"
-                detectButton.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.accent_red))
+                statusBadge.text = "Scanning..."
+                detectButton.backgroundTintList = ColorStateList.valueOf(
+                    ContextCompat.getColor(requireContext(), R.color.accent_red)
+                )
             } else {
-                detectButton.text = "Detect Objects"
-                detectButton.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.button_mint))
+                detectButton.text = "Start Industrial Scan"
+                statusBadge.text = "Ready to Scan"
+                detectButton.backgroundTintList = ColorStateList.valueOf(
+                    ContextCompat.getColor(requireContext(), R.color.button_mint)
+                )
                 overlay.clear()
             }
         }
@@ -130,20 +156,17 @@ class ScanFragment : Fragment(), DetectorListener {
                             return@setAnalyzer
                         }
                         
-                        // Per instructions: "Remove the bounding box and the respected region"
-                        // Interpreting this as "Removing the crop (ROI) and scanning the full image again"
-                        // but also "Remove the bounding box" from the UI (handled in OverlayView).
+                        // Safely create a bitmap (avoiding rowStride crash)
+                        val sourceBitmap = image.toBitmap()
+                        val matrix = android.graphics.Matrix().apply {
+                            postRotate(image.imageInfo.rotationDegrees.toFloat())
+                        }
+                        val rotatedBitmap = Bitmap.createBitmap(sourceBitmap, 0, 0, sourceBitmap.width, sourceBitmap.height, matrix, true)
                         
-                        val bitmapBuffer = Bitmap.createBitmap(
-                            image.width,
-                            image.height,
-                            Bitmap.Config.ARGB_8888
-                        )
-                        image.use { bitmapBuffer.copyPixelsFromBuffer(image.planes[0].buffer) }
+                        // Pass upright image
+                        objectDetectorHelper.detect(rotatedBitmap, 0)
                         
-                        // Pass full image, no cropping
-                        val rotation = image.imageInfo.rotationDegrees
-                        objectDetectorHelper.detect(bitmapBuffer, rotation)
+                        image.close()
                     }
                 }
 
@@ -179,14 +202,49 @@ class ScanFragment : Fragment(), DetectorListener {
         imageWidth: Int
     ) {
         val safeResults = results ?: mutableListOf()
-        if (safeResults.isNotEmpty()) {
-             sharedViewModel.updateDetectionStats(safeResults)
+        
+        // Only accept detections that intersect with the scan area
+        val scanArea = overlay.getScanAreaInImageCoordinates()
+        val filteredResults = mutableListOf<Detection>()
+        
+        for (detection in safeResults) {
+            val box = detection.boundingBox
+            // Check if the center of the bounding box is inside the scan area
+            val cx = box.centerX()
+            val cy = box.centerY()
+            
+            if (scanArea.contains(cx.toInt(), cy.toInt())) {
+                filteredResults.add(detection)
+            }
+        }
+        
+        if (filteredResults.isNotEmpty()) {
+             sharedViewModel.updateDetectionStats(filteredResults)
+             
+             // Check if we should beep for this specific target class
+             val targetClass = sharedViewModel.targetClass.value ?: ""
+             val shouldBeep = if (targetClass.isEmpty()) {
+                 true
+             } else {
+                 filteredResults.any { 
+                     val label = it.categories.firstOrNull()?.label ?: ""
+                     label.equals(targetClass, ignoreCase = true)
+                 }
+             }
+             
+             if (shouldBeep) {
+                 // Play a loud beep to notify the user, throttled to 1 beep per second
+                 val currentTime = System.currentTimeMillis()
+                 if (currentTime - lastBeepTime > 1000) {
+                     toneGenerator?.startTone(ToneGenerator.TONE_PROP_BEEP, 200)
+                     lastBeepTime = currentTime
+                 }
+             }
         }
         
         activity?.runOnUiThread {
-            // No offset calc needed as we aren't cropping anymore
             overlay.setResults(
-                safeResults,
+                filteredResults,
                 imageHeight,
                 imageWidth
             )
@@ -198,6 +256,8 @@ class ScanFragment : Fragment(), DetectorListener {
     override fun onDestroyView() {
         super.onDestroyView()
         cameraExecutor.shutdown()
+        toneGenerator?.release()
+        toneGenerator = null
     }
 
     companion object {

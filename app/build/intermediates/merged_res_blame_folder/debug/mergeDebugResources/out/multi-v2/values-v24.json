@@ -1,20 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.tfliteapp-mergeDebugResources-49:/values-v24/values-v24.xml",
+            "outputFile": "com.example.tfliteapp-mergeDebugResources-54:/values-v24/values-v24.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\balat\\.gradle\\caches\\9.1.0\\transforms\\cc17774ba84d153d28e5c6f086486cf4\\workspace\\transformed\\appcompat-1.6.1\\res\\values-v24\\values-v24.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,212",
-                        "endColumns": "156,134",
-                        "endOffsets": "207,342"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\balat\\.gradle\\caches\\9.1.0\\transforms\\d33f4309ccfa5bf49e8cbe5b8ed4a99a\\workspace\\transformed\\material-1.11.0\\res\\values-v24\\values-v24.xml",
+                    "source": "C:\\Users\\Tharu\\.gradle\\caches\\9.1.0\\transforms\\719af7182283b322f53bd077f51d107f\\workspace\\transformed\\material-1.13.0\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,9,12,15",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -30,6 +20,16 @@
                         "endLines": "4,5,6,7,10,13,16,19",
                         "endColumns": "84,98,86,100,10,10,10,10",
                         "endOffsets": "427,526,613,714,913,1126,1327,1542"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Tharu\\.gradle\\caches\\9.1.0\\transforms\\2a4a839e9eb8caf5f4c4401a05f98fe1\\workspace\\transformed\\appcompat-1.7.1\\res\\values-v24\\values-v24.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,212",
+                        "endColumns": "156,134",
+                        "endOffsets": "207,342"
                     }
                 }
             ]
