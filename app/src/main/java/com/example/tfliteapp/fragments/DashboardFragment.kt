@@ -145,11 +145,11 @@ class DashboardFragment : Fragment() {
     private fun updateClassDistributionUI() {
         if (currentDistribution.isEmpty()) {
             barChart.clear()
-            barChart.setNoDataText("No detections yet")
+            barChart.setNoDataText(getString(R.string.no_detections_yet))
             barChart.setNoDataTextColor(Color.GRAY)
             
             pieChart.clear()
-            pieChart.setNoDataText("No detections yet")
+            pieChart.setNoDataText(getString(R.string.no_detections_yet))
             pieChart.setNoDataTextColor(Color.GRAY)
             
             classCountContainer.removeAllViews()

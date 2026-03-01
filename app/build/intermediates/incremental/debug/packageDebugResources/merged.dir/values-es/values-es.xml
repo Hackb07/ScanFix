@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ScanFix</string>
+    <string name="bar_chart">Gráfico de barras</string>
+    <string name="class_distribution">Distribución de Clases</string>
+    <string name="clear_database">Borrar Base de Datos</string>
+    <string name="confidence">Confianza</string>
+    <string name="confidence_threshold">Umbral de confianza: %1$d%%</string>
+    <string name="current_model">Modelo Actual</string>
+    <string name="data_management">Gestión de Datos</string>
+    <string name="db_cleared">Base de datos borrada con éxito</string>
+    <string name="default_model">Modelo por defecto (MobileNet V1)</string>
+    <string name="delete_history">Eliminar todo el historial de detección</string>
+    <string name="detected_classes_breakdown">Desglose de Clases Detectadas</string>
+    <string name="detection_settings">Ajustes de Detección</string>
+    <string name="export_data">Exportar Datos</string>
+    <string name="export_to_csv">Exportar detecciones a CSV</string>
+    <string name="industrial_dashboard">Panel Industrial</string>
+    <string name="invalid_file">Archivo no válido seleccionado.</string>
+    <string name="model_loaded">Modelo cargado: %1$s</string>
+    <string name="nav_dashboard">Panel</string>
+    <string name="nav_scan">Escanear</string>
+    <string name="nav_settings">Ajustes</string>
+    <string name="no_detections_yet">No hay detecciones aún</string>
+    <string name="permission_denied">Permiso denegado</string>
+    <string name="pie_chart">Gráfico circular</string>
+    <string name="ready_to_scan">Listo para escanear</string>
+    <string name="remove_use_default">Eliminar y usar el predeterminado</string>
+    <string name="scan_now">Escanear Ahora</string>
+    <string name="scanning">Escaneando...</string>
+    <string name="settings">Ajustes</string>
+    <string name="share_export">Compartir datos exportados</string>
+    <string name="start_industrial_scan">Iniciar Escaneo Industrial</string>
+    <string name="stop_scanning">Detener Escaneo</string>
+    <string name="switched_default">Volvió al modelo predeterminado</string>
+    <string name="target_class">Clase Objetivo (Solo pitar en esta):</string>
+    <string name="tflite_model">Modelo TFLite</string>
+    <string name="total">Total</string>
+    <string name="upload_model">Subir Modelo .tflite</string>
+    <string name="version">Versión 1.0.0</string>
+</resources>

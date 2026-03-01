@@ -3,13 +3,13 @@
     <item
         android:id="@+id/scanFragment"
         android:icon="@drawable/ic_scan"
-        android:title="Scan" />
+        android:title="@string/nav_scan" />
     <item
         android:id="@+id/dashboardFragment"
         android:icon="@drawable/ic_dashboard"
-        android:title="Dashboard" />
+        android:title="@string/nav_dashboard" />
     <item
         android:id="@+id/settingsFragment"
         android:icon="@drawable/ic_settings"
-        android:title="Settings" />
+        android:title="@string/nav_settings" />
 </menu>

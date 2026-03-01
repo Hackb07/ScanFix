@@ -52,11 +52,11 @@ class SettingsFragment : Fragment() {
                         sharedViewModel.setModelUri(uri)
                         modelNameText.text = fileName
                         removeModelButton.visibility = View.VISIBLE
-                        Toast.makeText(context, "Model loaded: $fileName", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, getString(R.string.model_loaded, fileName), Toast.LENGTH_SHORT).show()
                     } else {
                         Toast.makeText(
                             context,
-                            "Invalid file selected.",
+                            getString(R.string.invalid_file),
                             Toast.LENGTH_LONG
                         ).show()
                     }
@@ -81,14 +81,14 @@ class SettingsFragment : Fragment() {
         sharedViewModel.threshold.observe(viewLifecycleOwner) {
             val progress = (it * 100).toInt()
             seekBar.progress = progress
-            valueText.text = "Confidence Threshold: ${progress}%"
+            valueText.text = getString(R.string.confidence_threshold, progress)
         }
 
         seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 if (fromUser) {
                     val value = progress / 100f
-                    valueText.text = "Confidence Threshold: ${progress}%"
+                    valueText.text = getString(R.string.confidence_threshold, progress)
                     sharedViewModel.setThreshold(value)
                 }
             }
@@ -128,7 +128,7 @@ class SettingsFragment : Fragment() {
                 modelNameText.text = name
                 removeModelButton.visibility = View.VISIBLE
             } else {
-                modelNameText.text = "Default model (MobileNet V1)"
+                modelNameText.text = getString(R.string.default_model)
                 removeModelButton.visibility = View.GONE
             }
         }
@@ -139,14 +139,14 @@ class SettingsFragment : Fragment() {
 
         removeModelButton.setOnClickListener {
             sharedViewModel.setModelUri(null)
-            Toast.makeText(context, "Switched back to default model", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, getString(R.string.switched_default), Toast.LENGTH_SHORT).show()
         }
 
         // Clear Database
         val clearDbButton = view.findViewById<android.widget.LinearLayout>(R.id.clear_database_btn)
         clearDbButton.setOnClickListener {
             sharedViewModel.clearDatabase()
-            Toast.makeText(context, "Database cleared successfully", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, getString(R.string.db_cleared), Toast.LENGTH_SHORT).show()
         }
 
         // Export Data via Share Intent
@@ -160,7 +160,7 @@ class SettingsFragment : Fragment() {
                         // This flag is what gives the target app permission to read the file provider URI
                         addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
                     }
-                    startActivity(Intent.createChooser(shareIntent, "Share Export Data"))
+                    startActivity(Intent.createChooser(shareIntent, getString(R.string.share_export)))
                 } else {
                     Toast.makeText(context, message, Toast.LENGTH_LONG).show()
                 }

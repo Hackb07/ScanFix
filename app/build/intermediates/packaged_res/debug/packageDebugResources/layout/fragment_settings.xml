@@ -16,7 +16,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Settings"
+        android:text="@string/settings"
         android:textSize="28sp"
         android:textStyle="bold"
         android:textColor="@color/text_white"
@@ -28,7 +28,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TFLite Model"
+        android:text="@string/tflite_model"
         android:textColor="@color/text_white"
         android:textStyle="bold"
         android:textSize="18sp"
@@ -51,7 +51,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Current Model"
+                android:text="@string/current_model"
                 android:textColor="@color/text_grey"
                 android:textSize="13sp"
                 android:layout_marginBottom="4dp"/>
@@ -60,7 +60,7 @@
                 android:id="@+id/model_name_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Default model (MobileNet V1)"
+                android:text="@string/default_model"
                 android:textColor="@color/text_white"
                 android:textSize="16sp"
                 android:textStyle="bold"
@@ -72,7 +72,7 @@
                 android:id="@+id/upload_model_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Upload .tflite Model"
+                android:text="@string/upload_model"
                 android:textColor="@color/black"
                 android:textAllCaps="false"
                 app:backgroundTint="@color/button_mint"
@@ -87,7 +87,7 @@
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Remove &amp; Use Default"
+                android:text="@string/remove_use_default"
                 android:textColor="@color/accent_red"
                 android:textAllCaps="false"
                 app:cornerRadius="12dp"
@@ -104,7 +104,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Detection Settings"
+        android:text="@string/detection_settings"
         android:textColor="@color/text_white"
         android:textStyle="bold"
         android:textSize="18sp"
@@ -144,7 +144,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Target Class (Beep only on this):"
+                android:text="@string/target_class"
                 android:textColor="@color/text_white"
                 android:layout_marginBottom="8dp"/>
                 
@@ -171,7 +171,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Data Management"
+        android:text="@string/data_management"
         android:textColor="@color/text_white"
         android:textStyle="bold"
         android:textSize="18sp"
@@ -205,13 +205,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Clear Database"
+                android:text="@string/clear_database"
                 android:textColor="@color/text_white"
                 android:textSize="16sp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Delete all detection history"
+                android:text="@string/delete_history"
                 android:textColor="@color/text_grey"
                 android:textSize="14sp"/>
         </LinearLayout>
@@ -245,13 +245,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Export Data"
+                android:text="@string/export_data"
                 android:textColor="@color/text_white"
                 android:textSize="16sp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Export detections to CSV"
+                android:text="@string/export_to_csv"
                 android:textColor="@color/text_grey"
                 android:textSize="14sp"/>
         </LinearLayout>
@@ -265,7 +265,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Version 1.0.0"
+        android:text="@string/version"
         android:textColor="@color/text_grey"
         android:gravity="center"
         android:layout_marginBottom="16dp"/>

@@ -1,5 +1,9 @@
 [
     {
+        "merged": "com.example.tfliteapp-debug-56:/layout_fragment_settings.xml.flat",
+        "source": "com.example.tfliteapp-main-58:/layout/fragment_settings.xml"
+    },
+    {
         "merged": "C:\\Users\\Tharu\\.gradle\\daemon\\9.1.0\\com.example.tfliteapp-debug-56:\\drawable_ic_settings.xml.flat",
         "source": "C:\\Users\\Tharu\\.gradle\\daemon\\9.1.0\\com.example.tfliteapp-main-58:\\drawable\\ic_settings.xml"
     },
@@ -36,6 +40,10 @@
         "source": "C:\\Users\\Tharu\\.gradle\\daemon\\9.1.0\\com.example.tfliteapp-main-58:\\layout\\activity_main.xml"
     },
     {
+        "merged": "com.example.tfliteapp-debug-56:/layout_fragment_scan.xml.flat",
+        "source": "com.example.tfliteapp-main-58:/layout/fragment_scan.xml"
+    },
+    {
         "merged": "C:\\Users\\Tharu\\.gradle\\daemon\\9.1.0\\com.example.tfliteapp-debug-56:\\mipmap-xhdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\Tharu\\.gradle\\daemon\\9.1.0\\com.example.tfliteapp-main-58:\\mipmap-xhdpi\\ic_launcher.png"
     },
@@ -50,6 +58,10 @@
     {
         "merged": "C:\\Users\\Tharu\\.gradle\\daemon\\9.1.0\\com.example.tfliteapp-debug-56:\\xml_backup_rules.xml.flat",
         "source": "C:\\Users\\Tharu\\.gradle\\daemon\\9.1.0\\com.example.tfliteapp-main-58:\\xml\\backup_rules.xml"
+    },
+    {
+        "merged": "com.example.tfliteapp-debug-56:/menu_bottom_nav_menu.xml.flat",
+        "source": "com.example.tfliteapp-main-58:/menu/bottom_nav_menu.xml"
     },
     {
         "merged": "com.example.tfliteapp-debug-56:/layout_fragment_dashboard.xml.flat",

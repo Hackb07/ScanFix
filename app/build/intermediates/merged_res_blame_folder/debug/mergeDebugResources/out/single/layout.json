@@ -4,6 +4,14 @@
         "source": "com.example.tfliteapp-main-58:/layout/fragment_dashboard.xml"
     },
     {
+        "merged": "com.example.tfliteapp-mergeDebugResources-55:/layout/fragment_scan.xml",
+        "source": "com.example.tfliteapp-main-58:/layout/fragment_scan.xml"
+    },
+    {
+        "merged": "com.example.tfliteapp-mergeDebugResources-55:/layout/fragment_settings.xml",
+        "source": "com.example.tfliteapp-main-58:/layout/fragment_settings.xml"
+    },
+    {
         "merged": "C:\\Users\\Tharu\\.gradle\\daemon\\9.1.0\\com.example.tfliteapp-mergeDebugResources-55:\\layout\\fragment_settings.xml",
         "source": "C:\\Users\\Tharu\\.gradle\\daemon\\9.1.0\\com.example.tfliteapp-main-58:\\layout\\fragment_settings.xml"
     },

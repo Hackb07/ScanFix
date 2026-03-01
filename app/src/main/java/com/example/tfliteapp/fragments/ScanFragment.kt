@@ -45,7 +45,7 @@ class ScanFragment : Fragment(), DetectorListener {
             if (isGranted) {
                 startCamera()
             } else {
-                Toast.makeText(context, "Permission Request Denied", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, getString(R.string.permission_denied), Toast.LENGTH_LONG).show()
             }
         }
 
@@ -98,14 +98,14 @@ class ScanFragment : Fragment(), DetectorListener {
         detectButton.setOnClickListener {
             isScanning = !isScanning
             if (isScanning) {
-                detectButton.text = "Stop Scanning"
-                statusBadge.text = "Scanning..."
+                detectButton.text = getString(R.string.stop_scanning)
+                statusBadge.text = getString(R.string.scanning)
                 detectButton.backgroundTintList = ColorStateList.valueOf(
                     ContextCompat.getColor(requireContext(), R.color.accent_red)
                 )
             } else {
-                detectButton.text = "Start Industrial Scan"
-                statusBadge.text = "Ready to Scan"
+                detectButton.text = getString(R.string.start_industrial_scan)
+                statusBadge.text = getString(R.string.ready_to_scan)
                 detectButton.backgroundTintList = ColorStateList.valueOf(
                     ContextCompat.getColor(requireContext(), R.color.button_mint)
                 )

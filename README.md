@@ -6,11 +6,13 @@
 
 ## 🚀 Features
 
--   **Real-Time Object Detection**: Identify multiple objects instantly using the device camera.
+-   **Real-Time Object Detection**: Identify multiple objects instantly with full-frame camera detection.
 -   **On-Device Inference**: Powered by TensorFlow Lite for fast, offline performance.
--   **Smart Dashboard**: Visualize detection metrics, including total counts and average confidence scores.
+-   **Streamlined Dashboard**: Clean, modern dashboard to visualize essential detection metrics and trends.
 -   **Dynamic Charts**: Real-time confidence trend analysis using interactive line charts.
--   **Dark Mode UI**: A sleek, modern "Dark Mint" aesthetic optimized for low-light environments.
+-   **Data Persistence**: securely save and manage local detection history and statistics using Room Database.
+-   **Multi-Language Support**: Fully localized (i18n & l10n) with support for English, French, and Spanish.
+-   **Dark Mode UI & Custom Logo**: A sleek, modern "Dark Mint" aesthetic with a professional logo, optimized for low-light environments.
 -   **Customizable Settings**: Adjust detection confidence thresholds on the fly.
 
 ## 📱 Tech Stack
@@ -18,6 +20,7 @@
 -   **Language**: Kotlin
 -   **UI Framework**: Android Views (XML), Material Components
 -   **Machine Learning**: TensorFlow Lite (Task Vision Library)
+-   **Local Storage**: Room Database
 -   **Camera**: CameraX
 -   **Navigation**: Jetpack Navigation Component
 -   **Architecture**: MVVM (Model-View-ViewModel)

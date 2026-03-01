@@ -11,7 +11,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Industrial Dashboard"
+        android:text="@string/industrial_dashboard"
         android:textSize="28sp"
         android:textStyle="bold"
         android:textColor="@color/text_white"
@@ -54,7 +54,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Total"
+                    android:text="@string/total"
                     android:textColor="@color/text_grey"
                     android:textSize="12sp"
                     android:layout_marginTop="4dp"/>
@@ -90,7 +90,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Confidence"
+                    android:text="@string/confidence"
                     android:textColor="@color/text_grey"
                     android:textSize="12sp"
                     android:layout_marginTop="4dp"/>
@@ -111,7 +111,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Class Distribution"
+            android:text="@string/class_distribution"
             android:textColor="@color/text_white"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -137,7 +137,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Bar Chart"
+            android:text="@string/bar_chart"
             android:textColor="@color/text_white"
             android:buttonTint="@color/accent_blue"
             android:checked="true" />
@@ -149,7 +149,7 @@
             android:layout_weight="1"
             android:textColor="@color/text_white"
             android:buttonTint="@color/accent_blue"
-            android:text="Pie Chart" />
+            android:text="@string/pie_chart" />
     </RadioGroup>
         
     <ScrollView
@@ -179,7 +179,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Detected Classes Breakdown"
+                android:text="@string/detected_classes_breakdown"
                 android:textColor="@color/text_white"
                 android:textStyle="bold"
                 android:textSize="18sp"

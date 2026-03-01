@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ScanFix</string>
+
+    <!-- Navigation -->
+    <string name="nav_scan">Scanner</string>
+    <string name="nav_dashboard">Tableau de bord</string>
+    <string name="nav_settings">Paramètres</string>
+
+    <!-- ScanFragment -->
+    <string name="ready_to_scan">Prêt à scanner</string>
+    <string name="start_industrial_scan">Démarrer le Scan Industriel</string>
+    <string name="stop_scanning">Arrêter le Scan</string>
+    <string name="scanning">En cours...</string>
+    <string name="permission_denied">Permission refusée</string>
+
+    <!-- DashboardFragment -->
+    <string name="industrial_dashboard">Tableau de bord industriel</string>
+    <string name="total">Total</string>
+    <string name="confidence">Confiance</string>
+    <string name="class_distribution">Distribution des classes</string>
+    <string name="bar_chart">Graphique en barres</string>
+    <string name="pie_chart">Graphique circulaire</string>
+    <string name="detected_classes_breakdown">Répartition des classes détectées</string>
+    <string name="no_detections_yet">Aucune détection pour l\'instant</string>
+    <string name="scan_now">Scanner mainteant</string>
+
+    <!-- SettingsFragment -->
+    <string name="settings">Paramètres</string>
+    <string name="tflite_model">Modèle TFLite</string>
+    <string name="current_model">Modèle actuel</string>
+    <string name="default_model">Modèle par défaut (MobileNet V1)</string>
+    <string name="upload_model">Télécharger un modèle .tflite</string>
+    <string name="remove_use_default">Supprimer et utiliser le modèle par défaut</string>
+    <string name="detection_settings">Paramètres de détection</string>
+    <string name="confidence_threshold">Seuil de confiance : %1$d%%</string>
+    <string name="target_class">Classe cible (Bip uniquement sur celle-ci) :</string>
+    <string name="data_management">Gestion des données</string>
+    <string name="clear_database">Effacer la base de données</string>
+    <string name="delete_history">Supprimer tout l\'historique</string>
+    <string name="export_data">Exporter les données</string>
+    <string name="export_to_csv">Exporter au format CSV</string>
+    <string name="version">Version 1.0.0</string>
+    <string name="model_loaded">Modèle chargé : %1$s</string>
+    <string name="invalid_file">Fichier sélectionné invalide.</string>
+    <string name="switched_default">Retour au modèle par défaut</string>
+    <string name="db_cleared">Base de données effacée avec succès</string>
+    <string name="share_export">Partager l\'export de données</string>
+</resources>
