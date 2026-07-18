@@ -4,7 +4,7 @@
 
 ---
 
-## 🚀 Features
+## Features
 
 -   **Real-Time Object Detection**: Identify multiple objects instantly with full-frame camera detection.
 -   **On-Device Inference**: Powered by TensorFlow Lite for fast, offline performance.
@@ -15,7 +15,7 @@
 -   **Dark Mode UI & Custom Logo**: A sleek, modern "Dark Mint" aesthetic with a professional logo, optimized for low-light environments.
 -   **Customizable Settings**: Adjust detection confidence thresholds on the fly.
 
-## 📱 Tech Stack
+## Tech Stack
 
 -   **Language**: Kotlin
 -   **UI Framework**: Android Views (XML), Material Components
@@ -28,7 +28,7 @@
 
 ---
 
-## 🛠️ Setup & Installation
+## Setup & Installation
 
 ### Prerequisites
 -   Android Studio Iguana or newer.
@@ -55,11 +55,11 @@
 
 4.  **Run the App**
     -   Connect your Android device via USB.
-    -   Click the **Run** button (▶️) in Android Studio.
+    -   Click the **Run** button  in Android Studio.
 
 ---
 
-## 🤝 Contribution Guidelines
+## Contribution Guidelines
 
 We welcome contributions from the community! Whether you want to fix a bug, improve documentation, or add a new feature, here's how you can help:
 
@@ -89,10 +89,10 @@ We welcome contributions from the community! Whether you want to fix a bug, impr
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 📧 Contact
+## Contact
 
 Project Link: [https://github.com/Hackb07/ScanFix](https://github.com/Hackb07/ScanFix)
