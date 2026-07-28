@@ -1,4 +1,4 @@
-# ScanFix 🔍
+# ScanFix
 
 **ScanFix** is a professional-grade Android application for real-time object detection and defect analysis. Built with Kotlin and TensorFlow Lite, it brings powerful edge AI capabilities directly to your mobile device, enabling instant identification and inspection without the need for an internet connection.
 
